@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex bg justify-normal">
+        <div class="bg-red-400 mx-0 px-0">
+            <div class="relative w-full mx-auto">
+                <div class="slide relative">
+                    <img class="w-full h-full object-cover"
+                        src="https://www.graza.co/cdn/shop/files/graza-pdp-duo-header-3_2x_caa7f912-38b3-4e36-b928-ed6c036abfc7_720x.jpg?v=1698551972">
+                    <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Flower One
+                        Caption</div>
+                </div>
+
+                <div class="slide relative">
+                    <img class="w-full h-full object-cover"
+                        src="https://www.graza.co/cdn/shop/products/graza-pdp-sizzle-header-3_2x_98f6ef49-281f-4095-b8bb-3045391401fe_720x.jpg?v=1698551972">
+                    <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Flower Two
+                        Caption</div>
+                </div>
+
+                <div class="slide relative">
+                    <img class="w-full h-full object-cover"
+                        src="https://www.graza.co/cdn/shop/products/graza-pdp-drizzle-header-3_2x_569477b7-acf0-4950-93a4-c263d6893aa4_720x.jpg?v=1698551972">
+                    <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Flower Three
+                        Caption
+                    </div>
+                </div>
+                <div class="slide relative">
+                    <img class="w-full h-full object-cover"
+                        src="https://www.graza.co/cdn/shop/products/graza-home-drizzle-in-use_2x_91b89a03-a404-434d-ae48-fb97e37406ab_720x.jpg?v=1698551972">
+                    <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Flower Three
+                        Caption
+                    </div>
+                </div>
+                <div class="slide relative">
+                    <img class="w-full h-full object-cover"
+                        src="https://www.graza.co/cdn/shop/products/graza-pdp-duo-header-2_2x_7673c33b-ecf4-43d9-b053-4261454c4f3c_720x.jpg?v=1698551972">
+                    <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Flower Three
+                        Caption
+                    </div>
+                </div>
+                <div class="slide relative">
+                    <img class="w-full h-fit object-cover"
+                        src="https://www.graza.co/cdn/shop/products/graza-home-sizzle-in-usecopy_2x_47ab5af6-0732-4835-96ba-9853798e5b9d_720x.jpg?v=1698551972">
+                    <div class="absolute bottom-0 w-full px-5 py-3 bg-black/40 text-center text-white">Flower Three
+                        Caption
+                    </div>
+                </div>
+
+                <!-- The previous button -->
+                <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white hover:text-amber-500 cursor-pointer"
+                    onclick="moveSlide(-1)">❮</a>
+
+                <!-- The next button -->
+                <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white hover:text-amber-500 cursor-pointer"
+                    onclick="moveSlide(1)">❯</a>
+
+            </div>
+            <br>
+
+            <!-- Javascript code -->
+            <script>
+                // set the default active slide to the first one
+                let slideIndex = 1;
+                showSlide(slideIndex);
+
+                // change slide with the prev/next button
+                function moveSlide(moveStep) {
+                    showSlide(slideIndex += moveStep);
+                }
+
+                // change slide with the dots
+                function currentSlide(n) {
+                    showSlide(slideIndex = n);
+                }
+
+                function showSlide(n) {
+                    let i;
+                    const slides = document.getElementsByClassName("slide");
+                    const dots = document.getElementsByClassName('dot');
+
+                    if (n > slides.length) { slideIndex = 1 }
+                    if (n < 1) { slideIndex = slides.length }
+
+                    // hide all slides
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].classList.add('hidden');
+                    }
+
+                    // remove active status from all dots
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].classList.remove('bg-yellow-500');
+                        dots[i].classList.add('bg-green-600');
+                    }
+
+                    // show the active slide
+                    slides[slideIndex - 1].classList.remove('hidden');
+
+                    // highlight the active dot
+                    dots[slideIndex - 1].classList.remove('bg-green-600');
+                    dots[slideIndex - 1].classList.add('bg-yellow-500');
+                }
+            </script>
+
+
+        </div>
+        <div class="bg-gray-600 w-1/2">
+            <div class="heading flex w-auto relative">
+                <h1 class="text-4xl">"Dizzle" and "Sizzle" </h1>
+                <h1 class="text-4xl">Extra Virgin Olive Oil</h1>
+                <div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>885 Reviews</p>
+                </div>
+            </div>
+            <div class=" box bg-slate-400  w-96 rounded-2xl h-[400px]">
+                <div>
+                    <h2 class="px-10 py-2">Quantity</h2>
+                </div>
+                <div>
+                    <ul class="flex mx-10 space-x-3">
+                        <li class="bg-green-700 rounded-md w-20 h-20 cursor-pointer">
+                            <div class="flex justify-center">1 set</div>
+                        </li>
+                        <li class="bg-green-700 rounded-md w-20 h-20 cursor-pointer">
+                            <div class="flex justify-center">2 set</div>
+                        </li>
+                        <li class="bg-green-700 rounded-md w-20 h-20 cursor-pointer">
+                            <div class="flex justify-center">3 set</div>
+                        </li>
+                        <li class="bg-green-700 rounded-md w-20 h-20 cursor-pointer">
+                            <div class="flex justify-center">4 set</div>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div class="flex space-x-40">
+                    <div> <input type="radio" name="" id=""></div>
+                    <div> One time purchase $38</div>
+
+                </div>
+                <br>
+                <div class="flex space-x-40">
+                    <div> <input type="radio" name="" id=""></div>
+                    <div> Subscribe and Save $38</div>
+
+                </div>
+                <div></div>
+            </div>
+            <br><br>
+            <div class="card bg-slate-400  w-96 rounded-2xl h-[400px]">
+                <div class="flex justify-evenly">
+                    <button id="button1">Description</button>
+                    <button id="button2">Button 2</button>
+                    <button id="button3">Button 3</button>
+                </div>
+                <div id="container"></div>
+
+
+                <script>
+                    // Get references to the buttons and the text area
+                    var button1 = document.getElementById("button1");
+                    var button2 = document.getElementById("button2");
+                    var button3 = document.getElementById("button3");
+                    var container = document.getElementById("container");
+                    // Define the paragraphs to display
+                    var content1 = " <br> hi <br>";
+                    var content2 = "Content for Button 2 goes here.";
+                    var content3 = "Content for Button 3 goes here.";
+
+
+                    // Add click event listeners to the buttons
+                    function displayContent(content) {
+                        container.innerHTML = content;
+                    }
+
+                    // Add click event listeners to the buttons
+                    button1.addEventListener("click", function () {
+                        displayContent(content1);
+                    });
+
+                    button2.addEventListener("click", function () {
+                        displayContent(content2);
+                    });
+
+                    button3.addEventListener("click", function () {
+                        displayContent(content3);
+                    });
+                </script>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
